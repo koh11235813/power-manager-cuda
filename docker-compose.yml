@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   # AC電源接続時のサービス
-  app-ac:
+  cuda-app-ac:
     build:
       context: . # ビルドの基準をプロジェクトルートに設定
       dockerfile: ./full-power/Dockerfile # 使用するDockerfileのパスを指定
@@ -19,7 +19,7 @@ services:
               capabilities: [gpu]
 
   # バッテリー駆動時のサービス
-  app-battery:
+  cuda-app-battery:
     build:
       context: . # こちらも同様
       dockerfile: ./low-power/Dockerfile

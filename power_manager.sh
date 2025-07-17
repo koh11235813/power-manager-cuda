@@ -11,9 +11,9 @@ while true; do
     
     TARGET_SERVICE=""
     if [[ "$REQUIRED_STATUS" == "AC" ]]; then
-        TARGET_SERVICE="app-ac"
+        TARGET_SERVICE="cuda-app-ac"
     else
-        TARGET_SERVICE="app-battery"
+        TARGET_SERVICE="cuda-app-battery"
     fi
 
     # --- ステップ2: 現在実行中のサービス名を取得 ---
