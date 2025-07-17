@@ -1,0 +1,35 @@
+# After
+version: '3.8'
+
+services:
+  # AC電源接続時のサービス
+  app-ac:
+    build:
+      context: . # ビルドの基準をプロジェクトルートに設定
+      dockerfile: ./full-power/Dockerfile # 使用するDockerfileのパスを指定
+    image: my-local-app:full-power
+    container_name: my-app-container
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # バッテリー駆動時のサービス
+  app-battery:
+    build:
+      context: . # こちらも同様
+      dockerfile: ./low-power/Dockerfile
+    image: my-local-app:low-power
+    container_name: my-app-container
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
