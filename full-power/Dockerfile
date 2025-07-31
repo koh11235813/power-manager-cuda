@@ -19,10 +19,9 @@ RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/t
     && rm torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl
 
 
-RUN git clone -b v0.18.0 https://github.com/pytorch/vision \
-    && cd vision \
-    && python3 setup.py install \
-    && cd ../
+RUN wget https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl \
+    && pip3 install https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl \
+    && rm torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl
 
 RUN python3 -m pip install \
     pandas \
