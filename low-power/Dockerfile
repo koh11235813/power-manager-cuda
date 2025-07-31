@@ -11,7 +11,14 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     git \
     libgl1-mesa-glx \
-    ffmpeg libsm6 libxext6 \
+    ffmpeg libsm6 libxext6
+
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb \
+    && dpkg -i cuda-keyring_1.1-1_all.deb \
+    && apt-get update \
+    && apt-get -y install libcusparselt0 libcusparselt-dev libopenblas-dev
+
+RUN apt clean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
