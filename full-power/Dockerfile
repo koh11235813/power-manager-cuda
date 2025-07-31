@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     git \
     libgl1-mesa-glx \
-    ffmpeg libsm6 libxext6
+    ffmpeg libsm6 libxext6 \
+    libjpeg-dev libpng-dev
 
 RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb \
     && dpkg -i cuda-keyring_1.1-1_all.deb \
@@ -21,10 +22,11 @@ RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm
 RUN apt clean \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install numpy==1.26.4
+
 RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
     && pip3 install torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
     && rm torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl
-
 
 RUN wget https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl \
     && pip3 install https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl \
