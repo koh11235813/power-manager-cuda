@@ -22,7 +22,7 @@ RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm
 RUN apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install numpy==1.26.4
+RUN pip3 install numpy==1.26.4
 
 # RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
 #     && pip3 install torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
@@ -36,24 +36,11 @@ RUN wget https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-li
     && pip3 install https://kinoko1943.jp/files/torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl \
     && rm torchvision-0.18.0a0+6043bc2-cp310-cp310-linux_aarch64.whl
 
-RUN python3 -m pip install \
-    pandas \
-    matplotlib \
-    seaborn \
-    ultralytics
+RUN python3 -m pip install --upgrade pip
 
-# pipをアップグレードし、必要なPythonパッケージをインストール
-# ベースイメージに含まれるPyTorchをそのまま利用します。
-# RUN python3 -m pip install --upgrade pip
-# RUN pip3 install \
-#     pandas \
-#     matplotlib \
-#     seaborn \
-#     ultralytics
-
+RUN pip3 install ultralytics
+RUN pip3 install numpy==1.26.4
 # 実行スクリプトをコンテナにコピー
-# (ビルドコンテキストに応じてパスを修正してください)
-# COPY full-power/hogehoge.sh /hogehoge.sh # full-power用
 COPY low-power/hogehoge.sh /hogehoge.sh
 
 RUN chmod +x /hogehoge.sh
