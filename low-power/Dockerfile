@@ -24,7 +24,11 @@ RUN apt clean \
 
 RUN pip install numpy==1.26.4
 
-RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
+# RUN wget https://developer.download.nvidia.com/compute/redist/jp/v60dp/pytorch/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
+#     && pip3 install torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
+#     && rm torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl
+
+RUN wget https://kinoko1943.jp/files/torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
     && pip3 install torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl \
     && rm torch-2.3.0a0+ebedce2.nv24.02-cp310-cp310-linux_aarch64.whl
 
