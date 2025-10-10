@@ -1,4 +1,4 @@
-# power-manger-cuda
+# power-manager-cuda
 
 Jetson（JetPack 6 系 / L4T r36.x）で、**電源ソース（AC / バッテリー）に応じて Docker コンテナの電力プロファイル（フル / 低消費電力）を自動切替**するためのミニマルな構成です。  
 `docker-compose.yml` で 2 つのサービス（フル/低電力）をビルドし、`power_manager.sh` が電源状態を判定してどちらかを起動します。
