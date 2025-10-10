@@ -3,7 +3,6 @@
 Jetson（JetPack 6 系 / L4T r36.x）で、**電源ソース（AC / バッテリー）に応じて Docker コンテナの電力プロファイル（フル / 低消費電力）を自動切替**するためのミニマルな構成です。  
 `docker-compose.yml` で 2 つのサービス（フル/低電力）をビルドし、`power_manager.sh` が電源状態を判定してどちらかを起動します。
 
-> リポジトリ名は `power-manger-cuda`（*manger*）です。誤入力にご注意ください。
 
 ---
 
@@ -91,31 +90,13 @@ sudo swapon /swapfile
 
 ---
 
-## リポジトリ構成（例）
-
-```
-.
-├── docker-compose.yml
-├── fake_power_source.sh
-├── full-power/
-│   ├── Dockerfile
-│   └── hogehoge.sh
-├── low-power/
-│   ├── Dockerfile
-│   ├── hogehoge.sh
-│   └── texput.log
-├── power_manager.sh
-├── setup.sh
-└── LICENSE
-```
-
 - `docker-compose.yml` には **AC 用（フル）** と **バッテリー用（低電力）** の 2 サービスが定義されています。
 - `power_manager.sh` は電源状態を判定し、該当するサービスのみを起動します。
 - `fake_power_source.sh` は電源状態の模擬用です。
 
 ---
 
-## よくある質問 / トラブルシューティング
+## トラブルシューティング
 
 - **`docker pull nvcr.io/...` で認証エラーになる**  
   `docker login nvcr.io` を実施し、**Username は `$oauthtoken`、Password は NGC の API Key** を入力しているか確認してください。
