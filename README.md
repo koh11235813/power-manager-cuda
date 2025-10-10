@@ -38,17 +38,17 @@ Jetson（JetPack 6 系 / L4T r36.x）で、**電源ソース（AC / バッテリ
 ## クイックスタート
 
 
-# 1) リポジトリをクローン
+1) リポジトリをクローン
 ```bash
 git clone https://github.com/koh11235813/power-manger-cuda.git && cd power-manger-cuda
 ```
 
-# 2) ビルド（初回は nvcr.io へのログインが必要）
+2) ビルド（初回は nvcr.io へのログインが必要）
 ```bash
 docker compose build
 ```
 
-# 3) 実行（電源状態に応じてフル/低電力のどちらかが起動）
+3) 実行（電源状態に応じてフル/低電力のどちらかが起動）
 ```bash
 ./power_manager.sh
 ```
