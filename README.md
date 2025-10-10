@@ -33,26 +33,27 @@ Jetson（JetPack 6 系 / L4T r36.x）で、**電源ソース（AC / バッテリ
      sudo reboot
      ```
 
-3. **メモリ/ストレージに余裕があると安心**  
-   学習/推論・ビルド時のメモリ不足を避けるため、**Swap の増量**や **SSD 増設**を推奨します（後述）。
-
 ---
 
 ## クイックスタート
 
-```bash
+
 # 1) リポジトリをクローン
-git clone https://github.com/koh11235813/power-manger-cuda.git
-cd power-manger-cuda
+```bash
+git clone https://github.com/koh11235813/power-manger-cuda.git && cd power-manger-cuda
+```
 
 # 2) ビルド（初回は nvcr.io へのログインが必要）
+```bash
 docker compose build
+```
 
 # 3) 実行（電源状態に応じてフル/低電力のどちらかが起動）
+```bash
 ./power_manager.sh
 ```
 
-- テスト用に電源状態を擬似化できる `fake_power_source.sh` も用意しています。実機の電源イベント連携がない環境での動作確認にどうぞ。
+- 偽の電源情報スクリプト`fake_power_source.sh` によって電源情報を生成しています。
 
 ---
 ## example logs
