@@ -68,15 +68,16 @@ docker compose build
 > **推奨:** 物理メモリが不足しやすい場合は、**SSD を増設**してスワップ領域を確保するのが安全です。
 
 ### A. SSD を増設してパーティションを Swap に割り当て（推奨）
-1. 新規 SSD を接続しパーティション作成（例：`/dev/nvme1n1p3`）。  
-2. 初期化と有効化：
+1. 新規 SSD を接続しパーティション作成（例：`/dev/nvme1n1p2`）。
+>   `sudo fdisk -l`でディスク名を確認してから`sudo cfdisk /dev/nvmeXn`でTUIでLinux SwapとLinux file Systemに割るのが早いです。  
+3. 初期化と有効化：
    ```bash
-   sudo mkswap /dev/nvme1n1p3
-   sudo swapon /dev/nvme1n1p3
+   sudo mkswap /dev/nvme1n1p2
+   sudo swapon /dev/nvme1n1p2
    ```
-3. 永続化のため `/etc/fstab` に追記：
+4. 永続化のため `/etc/fstab` に追記：
    ```fstab
-   /dev/nvme1n1p3  none  swap  sw  0  0
+   /dev/nvme1n1p2  none  swap  sw  0  0
    ```
 
 ### B. 既存ストレージ上のスワップファイルを拡張
