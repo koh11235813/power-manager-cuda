@@ -17,14 +17,18 @@ Jetson（JetPack 6 系 / L4T r36.x）で、**電源ソース（AC / バッテリ
 ## 事前準備（重要）
 
 1. **NGC（NVIDIA GPU Cloud）のアカウント作成 & docker login**  
-   ベースイメージは **`nvcr.io` の JetPack (L4T) イメージ**を利用します。初回は `docker login nvcr.io` が必要です。  
+   ベースイメージは **`nvcr.io` の JetPack (L4T) イメージ**を利用します。初回は `docker login nvcr.io` が必要です。
+   ![l4t-Jetpack r36.3.0](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-jetpack?version=r36.3.0)
+
+   ![NGC API Key guide](https://docs.nvidia.com/ngc/latest/ngc-catalog-user-guide.html#ngc-api-keys)   
+
    ```bash
    docker login nvcr.io
    # Username: $oauthtoken   # 文字列そのものを入力
    # Password: <NGCで発行したAPI Key>
    ```
 
-2. **Docker の権限**  
+3. **Docker の権限**  
    `docker` 実行に `sudo` が必要な環境では、以下のいずれかを選びます。
    - 毎回 `sudo` を付ける
    - またはユーザを `docker` グループへ追加（再ログイン/再起動が必要）
