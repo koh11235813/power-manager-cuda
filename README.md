@@ -90,7 +90,7 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 
 # 永続化: /etc/fstab に以下の行を追加
-# /swapfile  none  swap  sw  0  0
+UUID=XXXXXXX-XXXXXX-XXXXX swapfile  none  swap  sw  0  0
 ```
 
 ### C. SD カードに割り当てたい場合
