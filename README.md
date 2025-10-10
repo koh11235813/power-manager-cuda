@@ -55,6 +55,8 @@ docker compose build
 - テスト用に電源状態を擬似化できる `fake_power_source.sh` も用意しています。実機の電源イベント連携がない環境での動作確認にどうぞ。
 
 ---
+## example logs
+![logs](images/example-logs.png)
 
 ## スワップ（Swap）拡張のヒント
 
