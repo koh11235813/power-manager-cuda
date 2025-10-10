@@ -5,10 +5,10 @@ services:
   # AC電源接続時のサービス
   cuda-app-ac:
     build:
-      context: . # ビルドの基準をプロジェクトルートに設定
-      dockerfile: ./full-power/Dockerfile # 使用するDockerfileのパスを指定
-    image: my-local-app:full-power
-    container_name: my-app-container
+      context: . 
+      dockerfile: ./full-power/Dockerfile 
+    image: power-manager-cuda_arm64-full:full-power
+    container_name: power-manager-cuda_arm64-full
     restart: unless-stopped
     deploy:
       resources:
@@ -23,8 +23,8 @@ services:
     build:
       context: . # こちらも同様
       dockerfile: ./low-power/Dockerfile
-    image: my-local-app:low-power
-    container_name: my-app-container
+    image: power-manager-cuda_arm64-low:low-power
+    container_name: power-manager-cuda_arm64-low
     restart: unless-stopped
     deploy:
       resources:
