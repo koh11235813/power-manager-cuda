@@ -49,7 +49,7 @@ git clone https://github.com/koh11235813/power-manger-cuda.git && cd power-mange
 
 2) ビルド（初回は nvcr.io へのログインが必要）
 ```bash
-docker compose build
+docker-compose build
 ```
 
 3) 実行（電源状態に応じてフル/低電力のどちらかが起動）
